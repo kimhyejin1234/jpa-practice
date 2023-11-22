@@ -1,6 +1,7 @@
 package com.study.jpa.chap05_practice.api;
 
 import com.study.jpa.chap05_practice.dto.PageDTO;
+import com.study.jpa.chap05_practice.dto.PostListResponseDTO;
 import com.study.jpa.chap05_practice.service.PostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +27,10 @@ public class PostApiController {
 
     @GetMapping
     public ResponseEntity<?> list(PageDTO pageDTO){
+
         log.info("/api/v1/posts?page={}&size={}" , pageDTO.getPage(),pageDTO.getSize());
-        return  null;
+        PostListResponseDTO dto = postService.getPosts(pageDTO);
+        return  ResponseEntity.ok().body(dto);
     }
 
 }
