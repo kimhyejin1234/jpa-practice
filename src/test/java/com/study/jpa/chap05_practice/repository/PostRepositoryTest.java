@@ -22,7 +22,7 @@ class PostRepositoryTest {
             postRepository.save(Post.builder()
                     .title("하하호호제목" + i)
                     .content("낄낄깔깔내용" + i)
-                    .writer("작성자" + i)
+                    .writer("꾸까꾸까" + i)
                     .build()
             );
         }
